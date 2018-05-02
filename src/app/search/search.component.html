@@ -1,0 +1,19 @@
+<div class="search">
+    <form class="search-form">
+        <mat-form-field class="full-width">
+            <input matInput [(ngModel)]="searchText" name="searchText" (keyup)="searchBooks($event)" type="text"
+                   placeholder="Search Book from Google...">
+        </mat-form-field>
+    </form>
+</div>
+
+<div *ngIf="globals.totalRecords > 36">
+    <p *ngIf="globals.totalRecords">{{globals.totalRecords}} results was founded <span
+            *ngIf="globals.totalRecords > 36"> / {{globals.totalPagesOfRecords}} pages </span>
+    </p>
+    <button mat-mini-fab color="primary" *ngFor="let item of globals.counterObject; let i = index"
+            (click)="globals.startIndex = i*36; searchBooks($event)"
+            [ngClass]="globals.startIndex === i ? 'selected' : 'unselected'">{{i+1}}
+    </button>
+    <hr>
+</div>

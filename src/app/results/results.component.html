@@ -1,0 +1,21 @@
+
+<div class="result-container">
+    <mat-card *ngFor="let book of globals.booksFromQueryResult" class="oneItemOfResults">
+        <mat-toolbar color="primary">
+            <mat-toolbar-row>
+                <span>{{book.title}}</span>
+                <span class="spacer"></span>
+                <!--<mat-icon class="material-icons"><a href="{{book.previewLink}}">launch</a></mat-icon>-->
+                <mat-icon class="material-icons" (click)="addBookToShelve(book)">favorite</mat-icon>
+            </mat-toolbar-row>
+        </mat-toolbar>
+
+        <div class="book-container">
+            <div>
+                <p *ngIf="book.authors">{{book.authors}}</p>
+                <p *ngIf="book.pageCount">{{book.pageCount}} pages</p>
+            </div>
+            <div *ngIf="book.image"><img src="{{book.image}}" alt="book image" class="googleBookImage"/></div>
+        </div>
+    </mat-card>
+</div>

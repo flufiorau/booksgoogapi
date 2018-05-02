@@ -1,0 +1,9 @@
+<div *ngIf="globals.favoritesBooks" class="favoritesBooksShelve">
+    <mat-icon class="material-icons" (mouseover)="getFavorites()">favorite_border</mat-icon>
+    <div *ngFor="let book of globals.favoritesBooks" class="itemOfList">
+        {{book.title}}
+        <mat-icon class="material-icons" title="delete {{book.title}} from favorites"
+                  (click)="deleteBookFromShelve(book.id)">delete
+        </mat-icon>
+    </div>
+</div>
