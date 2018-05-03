@@ -23,7 +23,7 @@ export class AppService {
     }
 
     queryWithSearchText(searchText: string, startIndex: number): Observable<any> {
-        const urlForQuery: string = 'https://www.googleapis.com/books/v1/volumes?q=' + searchText + '&startIndex=' + startIndex + '&maxResults=36&key=' + this.appKey;
+        const urlForQuery: string = 'https://www.googleapis.com/books/v1/volumes?q=' + searchText + '&startIndex=' + startIndex * 36 + '&maxResults=36&key=' + this.appKey;
 
         return this.http.get(urlForQuery)
             .map(this.responseDataOfBooks)

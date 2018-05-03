@@ -28,12 +28,7 @@ export class SearchComponent implements OnInit {
         this.globals.counterObject = [];
         if (event.which === 13 || event.which === 1) {
             this.dirtyBit = false;
-            this.globals.startIndex = 0;
-            // if (startIndex) {
-            //     this.globals.startIndex = startIndex;
-            // } else {
-            //     this.globals.startIndex = 0;
-            // }
+            this.globals.startIndex = startIndex || 0;
             this.appService.queryWithSearchText(this.searchText, this.globals.startIndex).subscribe(
                 res => {
                     this.globals.booksFromQueryResult = (res.books);
